@@ -9,5 +9,8 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "type":"commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "async": "^3.2.5"
+  }
 }
