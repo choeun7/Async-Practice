@@ -11,6 +11,7 @@
   "description": "",
   "type": "commonjs",
   "dependencies": {
-    "async": "^3.2.5"
+    "async": "^3.2.5",
+    "mime": "^4.0.4"
   }
 }
