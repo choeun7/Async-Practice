@@ -1,6 +1,6 @@
 //result 값 넣어주는 로직
-import { BaseError } from "../config/error.js";
-import { status } from "../config/response.status.js";
+import { BaseError } from "../../config/error.js";
+import { status } from "../../config/response.status.js";
 import { tempResponseDTO } from "../dtos/temp.response.dto.js";
 import { flagResponseDTO } from "../dtos/temp.response.dto.js";
 

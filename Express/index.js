@@ -1,5 +1,5 @@
 import express from 'express';
-import { status } from './src/config/response.status.js';
+import { status } from './config/response.status.js';
 import { tempRouter } from './src/routes/temp.route.js';
 
 const app = express();
