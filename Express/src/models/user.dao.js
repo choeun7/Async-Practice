@@ -1,11 +1,11 @@
 import { pool } from "../../config/db.connect.js";
 import { BaseError } from "../../config/error.js";
 import { status } from "../../config/response.status.js";
-import { connectFoodCategory, confirmEmail, getUserId, insertUserSql, getPreferToUserId } from "./user.sql.js";
+import { connectFoodCategory, confirmEmail, confirmFoodCategory, getUserId, insertUserSql, getPreferToUserId } from "./user.sql.js";
 
 //사용자 추가하기
 export const addUser = async (data) => {
-    // try {
+    try {
         const conn = await pool.getConnection();
         const [confirm] = await pool.query(confirmEmail, data.email);
 
@@ -18,10 +18,9 @@ export const addUser = async (data) => {
 
         conn.release();
         return result[0].insertId;
-    // } catch (err) {
-    //     console.log("1");
-    //     throw new BaseError(status.PARAMETER_IS_WRONG);
-    // }
+    } catch (err) {
+        throw new BaseError(status.PARAMETER_IS_WRONG);
+    }
 }
 
 //사용자 정보 얻기
@@ -39,7 +38,6 @@ export const getUser = async (userId) => {
         conn.release();
         return user;
     } catch (err) {
-        console.log("2");
         throw new BaseError(status.PARAMETER_IS_WRONG);
     }
 }
@@ -48,12 +46,20 @@ export const getUser = async (userId) => {
 export const setPrefer = async (userId, foodCategoryId) => {
     try {
         const conn = await pool.getConnection();
+
+        const [confirm] = await pool.query(confirmFoodCategory, foodCategoryId);
+
+        if (!confirm[0].isExistFoodCategory) {
+            console.log(foodCategoryId);
+            conn.release();
+            throw new BaseError(status.CATEGORY_NOT_FOUND);
+        }
+
         await pool.query(connectFoodCategory, [foodCategoryId, userId]);
 
         conn.release();
         return;
     } catch (err) {
-        console.log("3");
         throw new BaseError(status.PARAMETER_IS_WRONG);
     }
 }
@@ -63,12 +69,10 @@ export const getUserPreferToUserId = async (userId) => {
     try {
         const conn = await pool.getConnection();
         const prefer = await pool.query(getPreferToUserId, userId);
-
         conn.release();
 
         return prefer;
     } catch (err) {
-        console.log("4");
         throw new BaseError(status.PARAMETER_IS_WRONG);
     }
 }

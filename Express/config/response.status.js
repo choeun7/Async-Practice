@@ -20,5 +20,8 @@ export const status = {
     EMAIL_ALREADY_EXIST: {status: StatusCodes.BAD_REQUEST, "isSuccess": false, "code": "MEMBER4003", "message": "이미 존재하는 이메일입니다."},
     
     // article err
-    ARTICLE_NOT_FOUND: {status: StatusCodes.NOT_FOUND, "isSuccess": false, "code": "ARTICLE4001", "message": "게시글이 없습니다."}
+    ARTICLE_NOT_FOUND: {status: StatusCodes.NOT_FOUND, "isSuccess": false, "code": "ARTICLE4001", "message": "게시글이 없습니다."},
+
+    // database err
+    CATEGORY_NOT_FOUND: {status: StatusCodes.NOT_FOUND, "isSuccess": false, "code": "DATABASE4001", "message": "존재하지 않는 음식 카테고리입니다."}
 }

@@ -1,4 +1,4 @@
-import { response } from "express";
+import { response } from '../../config/response.js';
 import { status } from "../../config/response.status.js";
 import { joinUser } from '../services/user.service.js';
 
