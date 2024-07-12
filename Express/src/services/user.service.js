@@ -18,7 +18,7 @@ export const joinUser = async (body) => {
         'phone' : body.phone
     });
 
-    if (joinUserData == -1) {
+    if (joinUserData === -1) {
         //이메일 중복될 경우 -1 반환해 에러 처리
         throw new BaseError(status.EMAIL_ALREADY_EXIST);
     } else {
