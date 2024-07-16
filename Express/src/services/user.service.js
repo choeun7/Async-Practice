@@ -1,6 +1,6 @@
 import { BaseError } from "../../config/error.js";
 import { status } from "../../config/response.status.js";
-import { signinResponseDTO } from "../dtos/user.dto.js";
+import { signinResponseDTO } from "../dtos/user.response.dto.js";
 import { addUser, getUser, getUserPreferToUserId, setPrefer } from '../models/user.dao.js';
 
 export const joinUser = async (body) => {

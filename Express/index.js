@@ -9,6 +9,7 @@ import { tempRouter } from './src/routes/temp.route.js';
 import { userRouter } from './src/routes/user.route.js';
 import { specs } from './config/swagger.config.js';
 import { response } from "./config/response.js";
+import { storeRouter } from "./src/routes/store.route.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,6 +31,7 @@ app.use('/api-docs', SwaggerUi.serve, SwaggerUi.setup(specs));
 // 라우터 세팅
 app.use('/temp', tempRouter);
 app.use('/user', userRouter);
+app.use('/:storeId', storeRouter);
 
 // 에러 핸들링
 app.use((err, req, res, next) => {
