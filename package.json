@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "async": "^3.2.5",
+    "axios": "^1.7.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -19,13 +20,15 @@
     "express-status-codes": "^1.0.4",
     "http-status-codes": "^2.3.0",
     "mime": "^4.0.4",
-    "mysql2": "^3.10.2"
+    "mysql2": "^3.10.2",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.24.7",
     "@babel/core": "^7.24.7",
     "@babel/node": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
+    "csv-parse": "^4.4.6",
     "nodemon": "^3.1.4",
     "swagger-cli": "^4.0.4",
     "swagger-jsdoc": "^6.2.8",
