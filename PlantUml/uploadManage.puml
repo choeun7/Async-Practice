@@ -1,0 +1,17 @@
+@startuml
+
+hide footbox
+autoactivate on
+
+participant "Service Client" as sc
+participant "Service Server" as ss
+participant "Nboard DB" as ndb
+
+
+autonumber 1 "(0)"
+ss -> ndb : 데일리 리포트 누락 조회 요청
+ndb -> ndb : 조회 대상 업로드 일시 체크
+ndb --> ss : 누락 캠페인 리스트 전달
+ss --> sc : 캠페인 리스트 전달(메일/문자)
+
+@enduml
