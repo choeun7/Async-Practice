@@ -85,7 +85,7 @@ zoo.enter('zookeeper1:2181,zookeeper2:2181,zookeeper3:2181', function(err) {
                                 loginId = req.session.data.userKey;
                             }
                             // TEST
-                            // loginId = '17412944189413778922';
+                            loginId = '17412944189413778922';
 
                             let form = new formidable({
                                 multiples: true,
@@ -617,6 +617,7 @@ zoo.enter('zookeeper1:2181,zookeeper2:2181,zookeeper3:2181', function(err) {
                             let clicks = isExistValue(item['클릭수']) ? `${item['클릭수']}` : '';
                             let views = isExistValue(item['조회수']) ? `${item['조회수']}` : '';
                             let note = isExistValue(item['비고']) ? `${item['비고']}` : '';
+                            let team = isExistValue(item['담당팀']) ? `${item['담당팀']}` : '';
 
                             let execYear, execMonth, execDay;
                             execDate = new Date(execDate);
@@ -628,7 +629,7 @@ zoo.enter('zookeeper1:2181,zookeeper2:2181,zookeeper3:2181', function(err) {
                     '${brand}', '${campaign}', '${country}', '${currency}', '${media}', '${adGoods}', '${targeting}',
                     '${device}', '${creativeName}', '${videoSeconds}', '${execYear}', '${execMonth}', '${execDay}', 
                     '${execHour}', '${spend}', '${impression}', '${clicks}', 
-                    '${views}', '${note}',  
+                    '${views}', '${note}', '${team}', 
                     '${createId}')`;
 
                             rows.push(query);
