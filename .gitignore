@@ -1,6 +1,7 @@
 node_modules
 package-lock.json
 Express/.env
+NodeMailer/.env
 
 # 그룹웨어 리스트
 CSV_Parse/csv/groupware_list.csv
